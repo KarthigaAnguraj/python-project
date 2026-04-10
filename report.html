@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+<script>
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        document.getElementById("location").value =
+            position.coords.latitude + "," + position.coords.longitude;
+    });
+}
+</script>
+</head>
+<body>
+
+<div class="container">
+<h2>Report Leakage</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input name="username" placeholder="Your Name" required>
+<input name="location" placeholder="Location" required>
+
+<input type="file" name="image" required>
+
+<button>Submit</button>
+<button onclick="window.location.href='/admin'">
+    Go to Admin Panel
+</button>
+
+</form>
+</div>
+
+</body>
+</html>
