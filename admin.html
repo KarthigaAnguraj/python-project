@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2 style="text-align:center; color:white;">Admin Panel</h2>
+
+<table>
+<tr>
+<th>ID</th>
+<th>User</th>
+<th>Location</th>
+<th>Status</th>
+<th>Update</th>
+</tr>
+
+{% for r in reports %}
+<tr>
+<td>{{r[0]}}</td>
+<td>{{r[1]}}</td>
+<td>{{r[2]}}</td>
+<td>{{r[3]}}</td>
+
+<td>
+<form method="POST">
+<input type="hidden" name="id" value="{{r[0]}}">
+
+<select name="status">
+<option>Reported</option>
+<option>In Progress</option>
+<option>Resolved</option>
+</select>
+
+<button>Update</button>
+</form>
+</td>
+
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
